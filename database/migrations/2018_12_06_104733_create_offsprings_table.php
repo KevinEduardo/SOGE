@@ -15,14 +15,14 @@ class CreateOffspringsTable extends Migration
     {
         Schema::create('offsprings', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('citzen_id');
+            $table->unsignedInteger('parent_id');
             $table->string("fullname");
             $table->string("gender");
             $table->date("birthdate");
             $table->timestamps();
-            $table->foreign('citzen_id')
+            $table->foreign('parent_id')
                   ->references('id')
-                  ->on('citzens')
+                  ->on('parents')
                   ->onDelete('cascade');
         });
     }
