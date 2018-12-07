@@ -20,11 +20,11 @@ class CreateOffspringsTable extends Migration
             $table->string("gender");
             $table->date("birthdate");
             $table->text('address');
-            $table->timestamps();
             $table->foreign('parent_id')
                   ->references('id')
                   ->on('parents')
                   ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
