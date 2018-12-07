@@ -40,6 +40,9 @@ class CreateParentsTable extends Migration
             $table->integer('mother_phone');
             $table->integer('father_phone');
             $table->integer('guardian_phone')->nullable();
+            $table->integer('mother_workphone');
+            $table->integer('father_workphone');
+            $table->integer('guardian_workphone')->nullable();
             $table->timestamps();
         });
     }
@@ -49,7 +52,7 @@ class CreateParentsTable extends Migration
      *
      * @return void
      */
-    public function down()l
+    public function down()
     {
         Schema::dropIfExists('parents');
     }

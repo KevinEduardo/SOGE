@@ -15,10 +15,11 @@ class CreateOffspringsTable extends Migration
     {
         Schema::create('offsprings', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('parent_id');
+            $table->integer('parent_id')->unsigned();
             $table->string("fullname");
             $table->string("gender");
             $table->date("birthdate");
+            $table->text('address');
             $table->timestamps();
             $table->foreign('parent_id')
                   ->references('id')

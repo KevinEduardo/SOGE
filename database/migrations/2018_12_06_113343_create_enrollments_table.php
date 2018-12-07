@@ -15,11 +15,11 @@ class CreateEnrollmentsTable extends Migration
     {
         Schema::create('enrollments', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('offspring_id');
-            $table->unsignedInteger('classe_id')->nullable();
-            $table->unsignedInteger('user_id')->nullable(); // The op, if any
-            $table->unsignedInteger('first_school_id')->nullable();
-            $table->unsignedInteger('second_school_id')->nullable();
+            $table->integer('offspring_id')->unsigned();
+            $table->integer('classe_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable(); // The op, if any
+            $table->integer('first_school_id')->unsigned()->nullable();
+            $table->integer('second_school_id')->unsigned()->nullable();
             $table->boolean('via_internet')->default(false);
             $table->boolean('random_school')->default(false);
             $table->foreign('offspring_id')

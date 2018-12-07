@@ -22,6 +22,11 @@ class CreateClassesTable extends Migration
             // Shift 2 it's the afternoon
             // Shift 3 it's the night
             // Shift 4 it's all day long
+            $table->integer('school_id')->unsigned();
+            $table->foreign('school_id')
+                  ->references('id')
+                  ->on('schools')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,8 +17,8 @@ class CreateRegistriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             // Waiting for consultants.
-            $table->unsignedInteger('classe_id');
-            $table->unsignedInteger('enrollment_id');
+            $table->integer('classe_id')->unsigned()->nullable();
+            $table->integer('enrollment_id')->unsigned()->nullable();
             $table->foreign('classe_id')
                   ->references('id')
                   ->on('classes')
