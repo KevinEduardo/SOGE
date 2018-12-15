@@ -19,6 +19,11 @@ class CreateRegistriesTable extends Migration
             // Waiting for consultants.
             $table->integer('classe_id')->unsigned()->nullable();
             $table->integer('enrollment_id')->unsigned()->nullable();
+            $table->integer('offspring_id')->unsigned();
+            $table->integer('age_at_registration'); // idade no momento da matricula
+            $table->time('entry_time'); // hora de entrade
+            $table->time('exit_time'); // hora de saída
+            $table->text('who_picks'); // quem busca na escola
             $table->foreign('classe_id')
                   ->references('id')
                   ->on('classes')
@@ -27,6 +32,10 @@ class CreateRegistriesTable extends Migration
                   ->references('id')
                   ->on('enrollments')
                   ->onDelete('SET NULL');
+            $table->foreign('offspring_id')
+                  ->references('id')
+                  ->on('offsprings')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }

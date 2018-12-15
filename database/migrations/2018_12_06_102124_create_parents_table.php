@@ -18,6 +18,12 @@ class CreateParentsTable extends Migration
             $table->string('mother_name');
             $table->string('father_name');
             $table->boolean('is_there_a_guardian')->default(false);
+            $table->boolean('are_they_married')->default(false);
+            $table->integer('family_income');
+            $table->boolean('they_have_water')->default(true);
+            $table->boolean('they_have_electricity')->default(true);
+            $table->boolean('they_have_landline')->default(true);
+            $table->integer('dependents')->default('1');
             $table->string('guardian_name')->nullable();
             $table->date('mother_birthdate');
             $table->date('father_birthdate');
